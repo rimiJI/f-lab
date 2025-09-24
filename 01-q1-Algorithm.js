@@ -6,7 +6,7 @@
 let nums = [1, 2, 3, 4, 5, 6, 7];
 let k = 3;
 
-const rotate = function (nums, k) {
+let rotate = function (nums, k) {
   nums.reverse();
   const len = nums.length;
   k %= len;
@@ -19,9 +19,11 @@ const rotate = function (nums, k) {
   for (let i = 0; i < len; i++) {
     nums[i] = newNums[i];
   }
+  return nums;
 };
 
 console.log(rotate(nums, k));
+
 /**
 You are building a photo album app. The album stores several photos in order, represented as integer numbers in an array.
 
