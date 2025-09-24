@@ -1,13 +1,27 @@
 // Q1 . Array 값을 K스텝씩 오른쪽으로 회전시키기.
+//방법1
+// Complexity Time:O(n) , Space:O(n)
+//시간복잡도 O(n) ▶for문으로 한번 돌려줬기때문에
+//공간복잡도 O(n) ▶slice,concat으로 새 배열을 만들어 줬기 때문에
 let nums = [1, 2, 3, 4, 5, 6, 7];
 let k = 3;
 
-function rotateK(arr, c) {
-  return arr.rotate(c);
-}
+const rotate = function (nums, k) {
+  nums.reverse();
+  const len = nums.length;
+  k %= len;
 
-console.log(rotateK(nums, k));
+  const first = nums.slice(0, k).reverse();
+  const second = nums.slice(k).reverse();
 
+  const newNums = first.concat(second);
+
+  for (let i = 0; i < len; i++) {
+    nums[i] = newNums[i];
+  }
+};
+
+console.log(rotate(nums, k));
 /**
 You are building a photo album app. The album stores several photos in order, represented as integer numbers in an array.
 
