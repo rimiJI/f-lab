@@ -25,10 +25,29 @@ let rotate = function (nums, k) {
 console.log(rotate(nums, k));
 
 //방법2
-// Complexity Time:  , Space:
+// Complexity O( ) , Space:O( )
 //시간복잡도 ▶
 //공간복잡도 ▶
-rotate = function (nums, k) {};
+rotate = function (nums, k) {
+  const reversed = function (l, r, nums) {
+    // l,r은 배열 양 끝
+    /*만약 l가 r보다 순서가 앞이라면 (순서규칙이 false라면 멈춰라)
+      nums l과 r의 내용를 바꿔라 (swap)
+      그리고 l과 r의 순서를 한단계식 안쪽으로 */
+    while (l < r) {
+      //[1,2,3,4]
+      [nums[l], nums[r]] = [nums[r], nums[l]];
+      //단일 스칼라 변수값에 임시로 빼는 방법도 있다.
+      // 그치만 그건 현재 내 실력으로 너무 헷갈림.....
+      /*swap
+      const t = arr[l];     // 1. 왼쪽 값을 임시 변수 t에 저장
+      arr[l] = arr[r]; // 2. 오른쪽 값을 왼쪽 칸에 덮어씀
+      arr[r] = t;      // 3. 아까 저장해둔 왼쪽 값을 오른쪽 칸에 넣음*/
+      l++;
+      r--;
+    }
+  };
+};
 
 /**
 You are building a photo album app. The album stores several photos in order, represented as integer numbers in an array.
