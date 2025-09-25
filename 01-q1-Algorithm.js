@@ -30,26 +30,27 @@ console.log(rotate(nums, k));
 //공간복잡도 ▶
 rotate = function (nums, k) {
   const swapRev = function (l, r, nums) {
-    // l,r은 배열 양 끝
-    /*만약 l가 r보다 순서가 앞이라면 (순서규칙이 false라면 멈춰라)
-      nums l과 r의 내용를 바꿔라 (swap)
-      그리고 l과 r의 순서를 한단계식 안쪽으로 */
     while (l < r) {
-      //[1,2,3,4]
       [nums[l], nums[r]] = [nums[r], nums[l]];
-      //*Destructuring 구조분해할당 中 swapping variables
-      //출처: MDN https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring#swapping_variables
-      //영문에는 있으나 국문 DOC에는 없음
-
-      //단일 스칼라 변수값에 임시로 빼는 방법도 있다.
-      // 그치만 그건 현재 내 실력으로 너무 헷갈림.....
-      /*swap
-      const t = arr[l];     // 1. 왼쪽 값을 임시 변수 t에 저장.(변수 t는 그저 입력데이터로, 공간복잡도 상승에 무의미한 역할. )
-      arr[l] = arr[r]; // 2. 오른쪽 값을 왼쪽 칸에 덮어씀
-      arr[r] = t;      // 3. 아까 저장해둔 왼쪽 값을 오른쪽 칸에 넣음*/
       l++;
       r--;
     }
+    //
+    /*풀이
+      -(l, r, nums)여기서 l,r은 배열 양 끝
+      -만약 l가 r보다 순서가 앞이라면 (순서규칙이 false라면 멈춰라)
+      --nums l과 r의 내용를 바꿔라 (swap)
+      --그리고 l과 r의 순서를 한단계식 안쪽으로 */
+    /*Destructuring 구조분해할당 中 swapping variables
+    -출처: MDN https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring#swapping_variables
+    --영문에는 있으나 국문 DOC에는 없음
+
+    -단일 스칼라 변수값에 임시로 빼는 방법도 있다.(전통적 swap 방법)
+    -- 그치만 그건 현재 내 실력으로 너무 헷갈림.....*/
+    /*전통적 swap 방법  
+      const t = arr[l];     // 1. 왼쪽 값을 임시 변수 t에 저장.(변수 t는 그저 입력데이터로, 공간복잡도 상승에 무의미한 역할. )
+      arr[l] = arr[r]; // 2. 오른쪽 값을 왼쪽 칸에 덮어씀
+      arr[r] = t;      // 3. 아까 저장해둔 왼쪽 값을 오른쪽 칸에 넣음*/
   };
   const len = nums.length;
   k %= len; //회전값k가 전체길이len보다 클 때, 회전후 유의미한 값만 남기기 위해, 몫값인 k 를 실질적 rotate값으로
