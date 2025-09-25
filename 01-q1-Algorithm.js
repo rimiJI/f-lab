@@ -1,4 +1,5 @@
-// Q1 . Array 값을 K스텝씩 오른쪽으로 회전시키기. (Leetcode.189 )
+// (Leetcode.189 )
+// Q1 . Array 값을 K스텝씩 오른쪽으로 회전시키기.
 //방법1
 // Complexity Time:O(n) , Space:O(n)
 //시간복잡도 O(n) ▶for문으로 한번 돌려줬기때문에
