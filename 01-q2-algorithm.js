@@ -1,16 +1,30 @@
-// Q1 .중복값 있는지?? (Leetcode.217)
+// Q2 .중복값 있는지?? (Leetcode.217)
 //방법2.
 // Complexity Time:O(n) , Space:O(n)
 //시간복잡도 O(n) ▶new Set()으로 배열 순회하면서 Set에 넣음
 //공간복잡도 O(n) ▶새 배열이 n길이만큼 늘어남
 //Set으로 정렬한 것의 길이와 <> 원본 길이가 일치하는가??
-let nums = [1, 2, 3, 1];
+let nums = [1, 2, 3, 4];
 
-let containsDuplicate = function (nums) {
+let containsDuplicate = (nums) => {
   const unique = new Set(nums);
-  return unique.size !== nums.length; //오타주의 1) rength❌  2) Set에는 length 속성 없음 size
-};
+  return unique.size !== nums.length;
+}; //오타주의 1) rength❌  2) Set에는 length 속성 없음 size
+// console.log(containsDuplicate(nums));
 
+//방법3._ 2번과 같은 원리인데 for문으로 돌리다가 있으면 바로 리턴 true
+// Complexity Time:O(n) , Space:O(n)
+//시간복잡도 O(n) ▶for문으로 n만큼 순회함 (물론 일찍 끝날수도 있어서 방법2.보단 빠름 )
+//공간복잡도 O(n) ▶new Set으로 새 배열이 n길이만큼 늘어남
+containsDuplicate = (nums) => {
+  const unique = new Set();
+  for (v of nums) {
+    //for (  of ) 값을 하나씩 돌리는 것 VS for( in )은 인덱스를 하나씩 돌리는것 for문과같음
+    if (unique.has(v)) return true;
+    unique.add(v);
+  }
+  return false;
+};
 console.log(containsDuplicate(nums));
 
 /*방법1.
