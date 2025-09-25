@@ -24,6 +24,12 @@ let rotate = function (nums, k) {
 
 console.log(rotate(nums, k));
 
+//방법2
+// Complexity Time:  , Space:
+//시간복잡도 ▶
+//공간복잡도 ▶
+rotate = function (nums, k) {};
+
 /**
 You are building a photo album app. The album stores several photos in order, represented as integer numbers in an array.
 
@@ -47,7 +53,7 @@ You are building a shopping list app. The list of items is stored in an integer 
 
 Before the user goes shopping, the app needs to check if they accidentally added the same product more than once.
 
-Write a function that returns true if any product appears at least twice in the list,
+Write a function that returns true {{if any product appears at least twice in the list}},
 and false if every product is unique.
 
 Example 1:
