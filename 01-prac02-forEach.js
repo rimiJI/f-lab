@@ -14,7 +14,8 @@ let a = [1, 2, 3, 4, 5, 6];
 // console.log(sumEvenNumbers(a));
 
 //각각의 method를 따로따로
-//방법 3-1) forEach문 + map{배열반환} 사용
+// 1. MAP
+//1-1) forEach문 + map 사용
 let evenSumMap = function (arr) {
   let evensum = 0;
   const arrMap = arr.map((v) => (v % 2 == 0 ? v : 0));
@@ -23,9 +24,9 @@ let evenSumMap = function (arr) {
   });
   return evensum;
 };
-console.log(evenSumMap(a));
+console.log("evenSumMap: ", evenSumMap(a));
 
-//방법 3-2) for문 + map 사용
+//1-2) for문 + map 사용
 evenSumMap = function (arr) {
   let evensum = 0;
   arr = arr.map((v) => (v % 2 == 0 ? v : 0));
@@ -34,4 +35,15 @@ evenSumMap = function (arr) {
   }
   return evensum;
 };
-console.log(evenSumMap(a));
+console.log("evenSumMap: ", evenSumMap(a));
+
+//2. FILTER
+//2-1) forEach문 + filter 사용
+let evenSumFilter = function (arr) {
+  let evensum = 0;
+  // filter로 거르기
+  const arrFilter = arr.filter((v) => v % 2 == 0);
+  arrFilter.forEach((v) => (evensum += v));
+  return evensum;
+};
+console.log("evenSumFilter: ", evenSumFilter(a));
