@@ -44,6 +44,6 @@ let evenSumFilter = function (arr) {
   // filter로 거르기
   const arrFilter = arr.filter((v) => v % 2 == 0);
   arrFilter.forEach((v) => (evensum += v));
-  return evensum;
+  return evensum; //⚠️forEach문을 return값에 넣으면 안됨
 };
 console.log("evenSumFilter: ", evenSumFilter(a));
