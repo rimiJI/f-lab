@@ -18,7 +18,7 @@ let a = [1, 2, 3, 4, 5, 6];
 //1-1) forEach문 + map 사용
 let evenSumMap = function (arr) {
   let evensum = 0;
-  const arrMap = arr.map((v) => (v % 2 == 0 ? v : 0));
+  const arrMap = arr.map((v) => (v % 2 == 0 ? v : 0)); //[0, 2, 0, 4, 0, 6]
   arrMap.forEach((v) => {
     evensum += v;
   });
@@ -29,7 +29,7 @@ console.log("evenSumMap: ", evenSumMap(a));
 //1-2) for문 + map 사용
 evenSumMap = function (arr) {
   let evensum = 0;
-  arr = arr.map((v) => (v % 2 == 0 ? v : 0));
+  arr = arr.map((v) => (v % 2 == 0 ? v : 0)); //[0, 2, 0, 4, 0, 6]
   for (let i = 0; i < arr.length; i++) {
     evensum += arr[i];
   }
@@ -42,8 +42,32 @@ console.log("evenSumMap: ", evenSumMap(a));
 let evenSumFilter = function (arr) {
   let evensum = 0;
   // filter로 거르기
-  const arrFilter = arr.filter((v) => v % 2 == 0);
+  const arrFilter = arr.filter((v) => v % 2 == 0); // [2, 4, 6]
   arrFilter.forEach((v) => (evensum += v));
   return evensum; //⚠️forEach문을 return값에 넣으면 안됨
 };
 console.log("evenSumFilter: ", evenSumFilter(a));
+
+//2-2) for문 + filter 사용
+evenSumFilter = function (arr) {
+  let evensum = 0;
+  const arrFilter = arr.filter((v) => v % 2 == 0); // [2, 4, 6]
+};
+
+//test1 [ false, true, false, true, false, true ]
+console.log(
+  "test1",
+  a.map((a) => a % 2 == 0)
+);
+
+//test2 [ 0, 2, 0, 4, 0, 6 ]
+console.log(
+  "test2",
+  a.map((a) => (a % 2 == 0 ? a : 0))
+);
+
+// test3 [ 2, 4, 6 ]
+console.log(
+  "test3",
+  a.filter((a) => a % 2 == 0)
+);
