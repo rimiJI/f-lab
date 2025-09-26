@@ -105,3 +105,53 @@ console.log(
   "test4",
   a.reduce((a, b) => a + b)
 );
+
+// test5결과 undefined
+//돌아가면서 실행만 해줄뿐 공허하게 return값 암시롱도 없음
+console.log(
+  "test5결과",
+  a.forEach((a) => a * 3)
+);
+
+// test6결과 [ undefined, undefined, undefined, undefined, undefined, undefined ]
+console.log(
+  "test6결과",
+  a.map((a) => {
+    a * 3;
+  })
+);
+// test7결과 [ 3, 6, 9, 12, 15, 18 ]
+//배열을 return
+console.log(
+  "test7결과",
+  a.map((a) => a * 3)
+);
+
+// test8결과 [ 1, 2 ]
+//배열을 return
+console.log(
+  "test8결과",
+  a.filter((a) => a < 3)
+);
+
+//test9결과 21
+//값을 return
+console.log(
+  "test9결과",
+  a.reduce((sum, v) => sum + v)
+);
+
+/* 
+.forEach() VS map/filter/reduce
+return값의 유무 
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach#%EC%84%A4%EB%AA%85
+( map()과 달리 forEach()는 항상 undefined를 반환하므로 체이닝할 수 없습니다. )
+
+
+test6:블록있음 VS test7:블록없음
+{}있음 - return 적어줘야함 . 안그러면 undefined.
+출처: https://javascript.info/arrow-functions-basics
+(`(...args) => expression` ~ returns the result)
+( `(...args) => { body }`  we need an explicit return to return something.)
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/Arrow_functions#%ED%95%A8%EC%88%98_%EB%82%B4%EB%B6%80
+ */
