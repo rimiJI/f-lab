@@ -24,7 +24,7 @@ let evenSumMap = function (arr) {
   });
   return evensum;
 };
-console.log("evenSumMap: ", evenSumMap(a));
+console.log("1-1evenSumMap: ", evenSumMap(a));
 
 //1-2) for문 + map 사용
 evenSumMap = function (arr) {
@@ -35,7 +35,7 @@ evenSumMap = function (arr) {
   }
   return evensum;
 };
-console.log("evenSumMap: ", evenSumMap(a));
+console.log("1-2evenSumMap: ", evenSumMap(a));
 
 //2. FILTER
 //2-1) forEach문 + filter 사용
@@ -44,16 +44,44 @@ let evenSumFilter = function (arr) {
   // filter로 거르기
   const arrFilter = arr.filter((v) => v % 2 == 0); // [2, 4, 6]
   arrFilter.forEach((v) => (evensum += v));
-  return evensum; //⚠️forEach문을 return값에 넣으면 안됨
+  return evensum; //⚠️.forEach()문을 return값에 넣으면 안됨
 };
-console.log("evenSumFilter: ", evenSumFilter(a));
+console.log("2-1evenSumFilter: ", evenSumFilter(a));
 
 //2-2) for문 + filter 사용
 evenSumFilter = function (arr) {
   let evensum = 0;
-  const arrFilter = arr.filter((v) => v % 2 == 0); // [2, 4, 6]
+  arr = arr.filter((v) => v % 2 == 0); // [2, 4, 6]
+  for (let i = 0; i < arr.length; i++) {
+    evensum += arr[i];
+  }
+  return evensum;
 };
+console.log("2-2evenSumFilter: ", evenSumFilter(a));
 
+//3.REDUCE
+//3-1) reduce + 삼항연산자(?:)
+let evenSumReduce = function (arr) {
+  return arr.reduce((sum, v) => (v % 2 == 0 ? sum + v : sum), 0); //초기값0
+};
+console.log("3-1evenSumReduce: ", evenSumReduce(a));
+
+//3-2) reduce + if문
+evenSumReduce = function (arr) {
+  return arr.reduce((sum, v) => {
+    if (v % 2 == 0) {
+      return sum + v;
+    } else {
+      return sum;
+      //삼항연산자에선 return안써줘도
+      //여기선 꼭 적어야 밖으로 튀어나옴
+    }
+  }, 0);
+};
+console.log("3-2evenSumReduce: ", evenSumReduce(a));
+
+//
+////test log
 //test1 [ false, true, false, true, false, true ]
 console.log(
   "test1",
@@ -70,4 +98,10 @@ console.log(
 console.log(
   "test3",
   a.filter((a) => a % 2 == 0)
+);
+
+//test4 21
+console.log(
+  "test4",
+  a.reduce((a, b) => a + b)
 );
