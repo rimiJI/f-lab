@@ -1,7 +1,37 @@
 // Q3 0들을 맨 뒤로 빼기. 복사말고 변경(in place로)
-let moveZeroToBack = function () {
+//방법1.
+const nums = [0, 1, 0, 3, 12];
+
+let moveZeroToBack = function (arr) {
   //만약0을 만나면 맨 뒤로 보내라.
+  //0이 아닌것들을 앞으로 당기고, 0의 갯수만큼 뒤에 0을 채운다.
+  arr.sort((a, b) => a - b);
+  for (v of arr) {
+    if (v === 0) {
+      arr.shift();
+      arr.push(0);
+    }
+  }
+  return arr;
 };
+
+console.log(moveZeroToBack(nums));
+
+//방법2.
+//위에꺼 삼항연산자로 바꾸기
+
+//방법3. splice로 해보기
+
+//방법4. 인덱스넘버 i로 for문 돌려서
+moveZeroToBack = function (arr) {
+  let notzero = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== 0) {
+      i = -1;
+    }
+  }
+};
+
 /**
 You are working on a to-do list app. The tasks are stored in an integer array nums, where each number represents a task ID.
 
