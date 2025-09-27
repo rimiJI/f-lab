@@ -1,5 +1,7 @@
 // Q3 0들을 맨 뒤로 빼기. 복사말고 변경(in place로)
-let moveZeroToBack = function () {};
+let moveZeroToBack = function () {
+  //만약0을 만나면 맨 뒤로 보내라.
+};
 /**
 You are working on a to-do list app. The tasks are stored in an integer array nums, where each number represents a task ID.
 
