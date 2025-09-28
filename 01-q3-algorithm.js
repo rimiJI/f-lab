@@ -19,18 +19,14 @@ console.log(moveZeroToBack(nums));
 
 //방법2.
 //위에꺼 삼항연산자로 바꾸기
-
-//방법3. splice로 해보기
-
-//방법4. 인덱스넘버 i로 for문 돌려서
 moveZeroToBack = function (arr) {
-  let notzero = 0;
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] !== 0) {
-      i = -1;
-    }
+  arr.sort((a, b) => a - b); //a가 b보다 크면 true -> 자리바꿈
+  for (v of arr) {
+    v === 0 ? (arr.shift(), arr.push(0)) : null;
   }
+  return arr;
 };
+// console.log("2", moveZeroToBack(nums));
 
 /**
 You are working on a to-do list app. The tasks are stored in an integer array nums, where each number represents a task ID.
