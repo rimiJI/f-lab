@@ -28,6 +28,8 @@ moveZeroToBack = function (arr) {
 };
 // console.log("2", moveZeroToBack(nums));
 
+//방법3. 제로숫자세기
+moveZeroToBack = function (arr) {};
 /**
 You are working on a to-do list app. The tasks are stored in an integer array nums, where each number represents a task ID.
 
