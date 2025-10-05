@@ -66,24 +66,30 @@ console.log(rotate(nums, k));
 //
 //
 //
-/**
-    You are building a photo album app. The album stores several photos in order, represented as integer numbers in an array.
-    
-    A user asks: "Can you bring the last photos to the front so I can see them first?"
-    In other words, you need to rotate the array to the right by k steps.
-    
-    Write a program that rotates the array nums to the right by k steps.
-    (k is a non-negative integer.)
-    
-    Example 1:
-    Input: nums = [1,2,3,4,5,6,7], k = 3
-    Output: [5,6,7,1,2,3,4]
-    
-    Example 2:
-    Input: nums = [-1,-100,3,99], k = 2
-    Output: [3,99,-1,-100]
-     */
-/**
+//
+//
+//
+/**Q1
+  You are building a photo album app. The album stores several photos in order, represented as integer numbers in an array.
+  
+  A user asks: "Can you bring the last photos to the front so I can see them first?"
+  In other words, you need to rotate the array to the right by k steps.
+  
+  Write a program that rotates the array nums to the right by k steps.
+  (k is a non-negative integer.)
+  
+  Example 1:
+  Input: nums = [1,2,3,4,5,6,7], k = 3
+  Output: [5,6,7,1,2,3,4]
+  
+  Example 2:
+  Input: nums = [-1,-100,3,99], k = 2
+  Output: [3,99,-1,-100]
+    */
+//
+//
+//
+/**Q2
 You are building a shopping list app. The list of items is stored in an integer array nums, where each number represents a specific product ID.
 
 Before the user goes shopping, the app needs to check if they accidentally added the same product more than once.
@@ -99,8 +105,10 @@ Example 2:
 Input: nums = [1,2,3,4]
 Output: false
  */
-
-/**
+//
+//
+//
+/**Q3
 You are working on a to-do list app. The tasks are stored in an integer array nums, where each number represents a task ID.
 
 Sometimes, unfinished tasks are marked as 0.

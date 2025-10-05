@@ -3,8 +3,6 @@
 const nums = [0, 1, 0, 3, 12];
 
 let moveZeroToBack = function (arr) {
-  //만약0을 만나면 맨 뒤로 보내라.
-  //0이 아닌것들을 앞으로 당기고, 0의 갯수만큼 뒤에 0을 채운다.
   arr.sort((a, b) => a - b);
   for (v of arr) {
     if (v === 0) {
