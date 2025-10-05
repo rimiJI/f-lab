@@ -27,7 +27,6 @@ for loop로 첫번째 값부터 하나씩 배열을 순회하면서
 공간복잡도는 O(1)이다. 새 변수선언, 재할당도 없었기 때문
 시간복잡도는 O(n^2)다. nested for loop이기 때문 (edited) 
  */
-let nums = [1, 2, 0, 3, 4, 5, 1, 7];
 // 1번 나왔음
 // 앞에 2가 나왔나? 안나왔네. 2적어놓고
 // 앞에 0, 0 적고
@@ -36,35 +35,52 @@ let nums = [1, 2, 0, 3, 4, 5, 1, 7];
 
 // https://ko.javascript.info/map-set
 
-let a = [1, 2, 0, 3, 4, 5];
-function containsDuplicate(arr) {
-  //newnums변수선언 배열
-  let newnums = new Map(arr); // { : ,: ,}
+let nums = [1, 2, 0, 3, 4, 5, 1, 7];
+
+let a = [1, 2, 0, 3, 0, 5];
+let b = [1, 2, 0, 3, 4, 5];
+function containsDuplicate2(arr) {
+  let numsMap = new Map(); //{:,:,:} 빈 맵 만들기
+
   for (let i = 0; i < arr.length; i++) {
-    if (!newnums.has(arr[i])) {
-      // 못찾았다.
-      map.set(i, arr[i]); // (0 , 1) , (1, 2), (2, 0), (3, 3), (4, 4)
+    if (!numsMap.has(arr[i])) {
+      //numsMap에 없다면 (key로 값을 저장해야 has로 찾기가 가능)
+      numsMap.set(arr[i], i); //set으로 추가해라
+    } else {
+      //있으면
+      return true; //true 반환
     }
-    // 찾았다! true 리턴
+  }
+  return false; //for문 다 돌때까지 계속 없으면 false.
+}
+console.log(containsDuplicate2(a));
+console.log(containsDuplicate2(b));
+
+/* 
+공간복잡도:O(n) , numsMap 변수 만듦
+시간복잡도:O(n) , for loop 한번만 회전하고 O(n) + Map의 key를 찾는 has는 O(1) 
+            근거: 복잡성이 O(N)보다 더 나은 경우 내부적으로 해시 테이블(O(1) 룩업), 검색 트리(O(log(N)) 룩업) 또는 기타 데이터 구조로 표현될 수 있습니다.
+            링크: https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Map#%EC%84%A4%EB%AA%85
+*/
+
+/* 키는 유일성을 띈다. 같은 키 또 저장하면 값이 바뀌기만 함
+이를 활용해 Map문제를 푼다면?
+빈 맵을 변수선언하고
+for loop로 계속 추가한다음에
+.size로 개수 세기 === arr.length 면 true, 아니면 false */
+function contains3(arr) {
+  let numsMap = new Map();
+  for (let i = 0; i < arr.length; i++) {
+    numsMap.set(arr[i], i);
+  }
+  if (numsMap.size === arr.length) {
     return false;
+  } else {
+    return true;
   }
-  return true;
-
-  // 이 배열에 중복된 값이 있으면 true를 반환하고, 그렇지 않으면 false를 반환하라.
-
-  //배열을 하나씩 돌아가면서
-  //만약newnums에 없니?
-  //없으면 새 배열에 추가해라
-  //없으니깐 true리턴하여라
-
-  for (let i = 0; i < arr.length; i++) {
-    for (let v = i + 1; v < arr.length; v++) {
-      if (arr[i] === arr[v]) return true;
-    }
-  }
-  return false;
 }
 
-console.log(containsDuplicate(nums));
+console.log(contains3(a));
+console.log(contains3(b));
 
-function buildSet() {}
+// 시간공간복잡도는 위와 동일하다. 이유도 같다.
