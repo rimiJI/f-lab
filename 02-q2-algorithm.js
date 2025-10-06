@@ -56,6 +56,11 @@ console.log(uniqueChaIndex(a));
 
 //-------------------------------------
 /* 
+이번엔 객체 Object로 풀어보기
+  */
+function uniqueChaIndex2(s) {}
+//-------------------------------------
+/* 
 let obj = { a: 1, b: 2, c: 3 };
 console.log(obj);
 // 👉 { a: 1, b: 2, c: 3 }
