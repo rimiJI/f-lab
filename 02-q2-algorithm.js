@@ -57,8 +57,27 @@ console.log(uniqueChaIndex(a));
 //-------------------------------------
 /* 
 이번엔 객체 Object로 풀어보기
+1. for loop로 문자열 객체로 전환, (식별자->알파벳:값->횟수)
+2. for loop로 돌려서 
+  만약 값이 1이라면 그 값이 처음문자열에서 쓰인 인덱스넘버 출력
+  for loop이 모두 끝난 뒤 -1출력
   */
-function uniqueChaIndex2(s) {}
+function uniqueChaIndex2(s) {
+  let obj = {};
+  //값만필요하므로
+  for (v of s) {
+    //그 키가 있으면 -기존값에서 +1 , 없으면 1 //{ a: 3, p: 2, l: 1, e: 1 }
+    obj[v] = v in obj ? obj[v] + 1 : 1;
+  }
+  for (let k in obj) {
+    if (obj[k] === 1) {
+      // 스트링에서 k의 순서(인덱스넘버) 구하기
+    }
+  }
+  return -1;
+}
+console.log(uniqueChaIndex2(a));
+
 //-------------------------------------
 /* 
 let obj = { a: 1, b: 2, c: 3 };
