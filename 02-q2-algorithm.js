@@ -38,11 +38,20 @@ for loop로 map을 보면서
 let a = "aaapple";
 function uniqueChaIndex(s) {
   let sMap = new Map();
+  // let count = 0; //이렇게하니깐 -1만 출력
 
   //Map으로 만들기
   for (let i = 0; i < s.length; i++) {
-    sMap.set(s[i], (sMap.get(s[i]) ?? 0) + 1); //만약값이 있다면 기존횟수+1 없다면 0
-  } //??는 nullish문법으로 앞??뒤 → 앞값이 참이면 그 값을, null이면 뒤값을
+    let ch = s[i]; //키
+    //만약 문자가 있으면 그값 + 1하고
+    if (sMap.has(ch)) {
+      sMap.set(/*키*/ ch, /*값*/ sMap.get(ch) + 1); //map.get(키)을 하면 값value를 가져올 수 있음
+    }
+    //없으면 count를 1로
+    else {
+      sMap.set(ch, 1);
+    }
+  }
 
   for (let i = 0; i < s.length; i++) {
     if (sMap.get(s[i]) === 1) {
@@ -62,7 +71,7 @@ console.log(uniqueChaIndex(a));
   만약 값이 1이라면 그 값이 처음문자열에서 쓰인 인덱스넘버 출력
   for loop이 모두 끝난 뒤 -1출력
   */
-function uniqueChaIndex2(s) {
+/* function uniqueChaIndex2(s) {
   let obj = {};
   //값만필요하므로
   for (v of s) {
@@ -76,7 +85,7 @@ function uniqueChaIndex2(s) {
   }
   return -1;
 }
-console.log(uniqueChaIndex2(a));
+console.log(uniqueChaIndex2(a)); */
 
 //-------------------------------------
 /* 
