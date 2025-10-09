@@ -18,61 +18,13 @@ for (let i=0;i<)
 순회가 다 끝나면
 -정렬한 뒤 
 -결과배열반환
-*/
-// 3-1.forloop로 풀기[존댓말]
-//시간복잡도:O(n³) nested for loop + includes
-//공간복잡도:O(n) 배열 하나 생성
-let listA = ["amy", "bob", "carl", "bob"];
-let listB = ["bob", "dana", "carl", "carl"];
 
-function commonFriends(a, b) {
-  let bothAscending = [];
-  for (let i = 0; i < a.length; i++) {
-    for (let j = 0; j < b.length; j++) {
-      //값이 같거나, bothAscending에 없을 경우 추가
-      if (a[i] === b[j] && !bothAscending.includes(a[i])) {
-        bothAscending.push(a[i]);
-      }
-    }
-  }
-  return bothAscending.sort();
-}
-console.log(commonFriends(listA, listB));
 
-// 3-1.forloop로 풀기[반말]
-//시간복잡도:O(n³) nested for loop + includes
-//공간복잡도:O(n) 배열 하나 생성
-function commonFriends2(a, b) {
-  let bothAscending = [];
-  for (let v1 of a) {
-    for (let v2 of b) {
-      v1 === v2 && !bothAscending.includes(v1) ? bothAscending.push(v1) : null;
-    }
-  }
-  return bothAscending;
-}
-console.log(commonFriends2(listA, listB));
-
-// 3-2.set으로 풀기
-//시간복잡도:O(n) for..of 하나
-//공간복잡도:O(3n) 배열 1,set 2개
-function commonFriends3(a, b) {
-  let bothAscending = [];
-  let setA = new Set(a);
-  let setB = new Set(b);
-  /* 일반 배열 처럼 for (let i=0;i<a.length;i++) 사용 불가
-1) Set에는 .length 속성이 없다.(대신 .size를 사용) 
-2) Set은 배열처럼 인덱스 요소로 접근 불가. 순서가 없는 데이터 모음 */
-  for (v1 of setA) {
-    if (setB.has(v1)) {
-      bothAscending.push(v1);
-    }
-  }
-  return bothAscending.sort();
-}
-console.log(commonFriends3(listA, listB));
-
-/*
+Q4. 방문한 URL 기록
+문자열로 이루어진 배열이 있다. 중복을 제외하되 순서는 보존시킨 값을 반환하라.
+4-1.for loop로 풀기
+4-2.Map으로 풀기
+4-3.Set으로 풀기
 
 Q5. 빈도수 높은 숫자 찾기
 숫자로 이루어진 배열이 있다. 가장 많이 등장하는 수를 반환하라.
