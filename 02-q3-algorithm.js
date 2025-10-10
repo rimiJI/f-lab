@@ -37,7 +37,7 @@ function commonFriends(a, b) {
   }
   return bothAscending.sort();
 }
-console.log(commonFriends(listA, listB));
+// console.log(commonFriends(listA, listB));
 
 // 3-1.forloop로 풀기[반말]
 //시간복잡도:O(n³) nested for loop + includes
@@ -51,11 +51,11 @@ function commonFriends2(a, b) {
   }
   return bothAscending;
 }
-console.log(commonFriends2(listA, listB));
+// console.log(commonFriends2(listA, listB));
 
 // 3-2.set으로 풀기
-//시간복잡도:O(n) for..of 하나
-//공간복잡도:O(3n) 배열 1,set 2개
+//시간복잡도:O(2n) for..of 하나, sort() 하나
+//공간복잡도:O(3n) 배열 1개 ,set 2개
 function commonFriends3(a, b) {
   let bothAscending = [];
   let setA = new Set(a);
@@ -70,8 +70,40 @@ function commonFriends3(a, b) {
   }
   return bothAscending.sort();
 }
-console.log(commonFriends3(listA, listB));
+// console.log(commonFriends3(listA, listB));
 
+/* 
+🤔3-3.시간 복잡도 비슷하게 유지하면서 공간을 덜 잡아먹게 하는 방법은 없을까요?
+forloop a의 값하나씩 돌아가면서 ......
+B을 set으로 만든 뒤(중복없는 값) a의 그 값이 있나요?
+있으면 setB에서 제거하기 , 남길 인덱스 1개씩 추가
+a.splice로 자른새배열(시간O(n),공간O(n))
+     or a.slice로자른새배열 (시간O(자른만큼),공간O(자른만큼))
+     or length값설정해서 길이줄이기 (시간O(1),공간(1))
+정렬한 뒤 반환 
+*/
+//시간복잡도: O(2n) forloop 하나, sort 하나
+//공간복잡도: O(n)  setB 하나
+let listC = ["carl", "bob", "amy", "bob"];
+let listD = ["bob", "bob", "bob", "dana", "carl", "carl"];
+
+function commonFriends4(a, b) {
+  let setB = new Set(b); //+ 공간 O(n)
+  let index = 0;
+  for (let i = 0; i < a.length; i++) {
+    //+ 시간 O(n)
+    if (setB.has(a[i])) {
+      //B에 있으면
+      index += 1;
+      setB.delete(a[i]);
+    }
+  }
+  //길이 줄이고, 정렬하기
+  a.length = index; //시간 O(1)
+  a.sort(); //시간 O(n)
+  return a;
+}
+console.log(commonFriends4(listC, listD));
 /*
 
 Q5. 빈도수 높은 숫자 찾기

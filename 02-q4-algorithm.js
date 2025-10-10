@@ -42,6 +42,27 @@ function uniqueVisit3(a) {
   return [...new Set(a)];
 }
 console.log(uniqueVisit3(urls));
+
+// 🤔4-2 에서 return [...mapUrls.keys()]; 이것보다 깔끔한 문법을 없을까요?
+//시간복잡도:O(2n) forloop,map.keys() 각각
+//공간복잡도:O(2n) map하나, array하나
+function uniqueVisit4(a) {
+  let mapUrls = new Map();
+  let newA = [];
+  for (let i = 0; i < a.length; i++) {
+    if (!mapUrls.has(a[i])) {
+      mapUrls.set(a[i], 0);
+    }
+  }
+  //반복을 순회해서 꺼내기 O(n)
+  for (let v of mapUrls.keys()) {
+    newA.push(v);
+  }
+  return newA;
+}
+
+console.log(uniqueVisit4(urls));
+
 /**
  * Unique Visit History
  *
