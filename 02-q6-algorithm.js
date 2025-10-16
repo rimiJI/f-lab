@@ -68,3 +68,36 @@ console.log(pairsMapSet(a));
  * Constraints:
  * - 1 <= pairs.length <= 10^4
  */
+
+// 보면 if statement가 반복되는 느낌이에요.
+// 혹시 DRY 하게 할순 없을까요?
+function pairsMapSet2(arr) {
+  let arrMap = new Map(); //{:,:,:}
+
+  //인덱스 조작이 아닌, [a,b]값자체가 중요하므로 for of
+  for (let [i, j] of arr) {
+    //(1) i가 없으면 map.set() 추가
+    if (!arrMap.has(i)) {
+      //값을 Set 배열형식으로 만들고
+      arrMap.set(i, new Set());
+      //값에 추가 add (Set형식이니까) <->배열은 push
+      arrMap.get(i).add(j);
+    }
+    //있으면 값 Set에 추가만
+    else {
+      arrMap.get(i).add(j);
+    }
+
+    //(2) j가 없으면 map.set()에 추가
+    if (!arrMap.has(j)) {
+      arrMap.set(j, new Set());
+      arrMap.get(j).add(i);
+    } //j있으면 값 Set에 추가만
+    else {
+      arrMap.get(j).add(i);
+    }
+  }
+
+  return arrMap;
+}
+console.log(pairsMapSet2(a));

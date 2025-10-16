@@ -67,3 +67,33 @@ console.log(FrequencyNum2(nums2));
 공간복잡도: O(n) map하나
 시간복잡도: O(2n) forloop두개
 */
+
+//bigCount 를 배열로 선언하셨는데 왜 그러셨던걸까요?
+// 변수 2개를 따로 선언하는 것도 혹시 생각해보셨을까요?
+function FrequencyNum3(a) {
+  let numsMap = new Map();
+  let bigCount = 0;
+  let bigCountNum = 0;
+  //순회하며 map에 저장
+  for (let i = 0; i < a.length; i++) {
+    if (numsMap.has(a[i])) {
+      //이거 아님 numsMap.get(a[i])+=1;
+      numsMap.set(a[i], numsMap.get(a[i]) + 1);
+    } else {
+      numsMap.set(a[i], 1);
+    }
+  }
+  //순회하며 values 중 최대 값 찾기
+  for (let [k, v] of numsMap) {
+    //순회 값이 최대값보다 클 경우 갱신
+    if (v > bigCount) {
+      bigCountNum = k;
+      bigCount = v;
+      //또는 구조분해할당 [bigCountNum,bigCount]=[k,v]
+    }
+  } //회전이 모두 끝나고
+  //최대키값 출력
+  return bigCountNum;
+}
+console.log(FrequencyNum3(nums));
+console.log(FrequencyNum3(nums2));
