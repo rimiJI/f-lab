@@ -30,12 +30,17 @@ class BankAccount {
 
   deposit(amount) {
     // TODO
+    if (amount <= 0) return this.currentA;
     this.currentA += amount;
     return this.currentA;
   }
-
+  /* 
+deposit 할땐, 주어진 값이 마이너스거나 0이면 무시하게끔 하는게 좋을거 같아요.
+withdraw 할땐, balance보다 크면 안될거 같은데요.
+*/
   withdraw(amount) {
     // TODO (check balance first)
+    if (this.currentA < amount) return this.currentA;
     this.currentA -= amount;
     return this.currentA;
   }
@@ -46,13 +51,9 @@ class BankAccount {
   }
 }
 const account = new BankAccount(100);
-const account2 = new BankAccount(0);
-const account3 = new BankAccount();
-account.deposit(50); // balance = 150
-account.withdraw(30); // balance = 120
-console.log(account.getBalance()); // 120
-console.log(account2.getBalance());
-console.log(account3.getBalance()); //undefined
+account.deposit(-50); // balance = 100 //0이하는 무시.
+account.withdraw(30); // balance = 70
+console.log(account.getBalance()); // 70
 
 /*
 this.init은 왜 선언하신거죠? 어디 쓸데가 없어보이는데..
