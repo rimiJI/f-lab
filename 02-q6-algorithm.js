@@ -111,7 +111,7 @@ function pairsMapSet2(arr) {
     if (!arrMap.has(k)) {
       arrMap.set(k, new Set());
     }
-    arrMap.set(k, arrMap.get(k).add(v));
+    arrMap.get(k).add(v);
     return arrMap;
   }
 
