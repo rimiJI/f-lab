@@ -44,27 +44,27 @@ class Counter {
     // TODO: store the initial value
     //객체 처음 생성시 한번 실행
     //초기값 기억.
-    this.init = initialValue;
+    this.initialValue = initialValue; //init => initialValue
     //현재값 기억.
-    this.currentV = this.init;
+    this.currentValue = this.initialValue; //curruentV => currentValue
   }
 
   increment() {
     // TODO: increase and return
-    this.currentV += 1;
-    return this.currentV;
+    this.currentValue += 1;
+    return this.currentValue;
   }
 
   decrement() {
     // TODO: decrease and return
-    this.currentV -= 1;
-    return this.currentV;
+    this.currentValue -= 1;
+    return this.currentValue;
   }
 
   reset() {
     // TODO: reset to the initial value
-    this.currentV = this.init;
-    return this.init;
+    this.currentValue = this.initialValue;
+    return this.initialValue;
   }
 }
 
@@ -77,3 +77,8 @@ console.log(counter1.decrement()); // 11
 console.log(counter1.reset()); // 10
 console.log(counter1.increment()); //11
 console.log(counter2.increment()); //1
+
+/*
+변수 이름이 명확하지 않은거 같아요.
+this.init 이라던가 this.currentV 라던가.
+더 좋은 이름이 없을까요?*/

@@ -23,9 +23,9 @@ Q8.은행 계좌
 */
 class BankAccount {
   constructor(initialBalance) {
+    if (initialBalance === undefined) initialBalance = 0;
     // TODO
-    this.init = initialBalance; //초기값
-    this.currentA = this.init; //현재금액.바뀌는 값을 기억할 것
+    this.currentA = initialBalance; //현재금액.바뀌는 값을 기억할 것
   }
 
   deposit(amount) {
@@ -46,6 +46,18 @@ class BankAccount {
   }
 }
 const account = new BankAccount(100);
+const account2 = new BankAccount(0);
+const account3 = new BankAccount();
 account.deposit(50); // balance = 150
 account.withdraw(30); // balance = 120
 console.log(account.getBalance()); // 120
+console.log(account2.getBalance());
+console.log(account3.getBalance()); //undefined
+
+/*
+this.init은 왜 선언하신거죠? 어디 쓸데가 없어보이는데..
+그리고, initialBalance 초기값이 주어지지 않았을때를 handle하면 좋을거 같아요.
+Error를 리턴하던가 아니면 초기값을 0으로 가던가.
+
+초기값이 주어지지않는다면 0으로,
+*/
