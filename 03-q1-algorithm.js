@@ -40,6 +40,7 @@
 let nums = [2, 7, 11, 15];
 let target = 9;
 /*
+//-------------첫번째 풀이-------------------
 forloop로 돌리면서 target에서 뺀 값을 - 그 값이 있는지 또 for로 돌리면서 일치하는 것 확인 
 두개의 값이 들어갈 [ , ]
 시간복잡도: O(n²)
@@ -56,20 +57,24 @@ function findTwoNumbers(nums, target) {
 }
 console.log(findTwoNumbers(nums, target));
 
-/* forloop로 돌리면서 target에서 뺀 값을 set에 add한담에 - 그 값이 있는지 set으로 만들어서has로 확인 */
+//-------------두번째 풀이-------------------
+/* forloop로 돌리면서 
+target에서 뺀 값을 map에 추가한담에 
+그 값이 있는지 has로 확인 
+있으면 가져오고
+없으면 추가하고 */
 function findTwoNumbers2(nums, target) {
   let seenMap = new Map(); //{값:인덱스}
   for (let i = 0; i < nums.length; i++) {
-    const oneside = target - nums[i]; //짝 찾기 . 반복할때마다 새로 만들어지는 상수
-    console.log(`현재값: ${nums[i]}, 필요한값: ${oneside}`);
-    //기존에 있으면 꺼내기
+    const oneside = target - nums[i]; //짝 찾기 . 반복할때마다 새로 만들어지는 상수니깐 let이든 const든 상관 없음
+    //뺀 나머지값이 기존에 있으면 반환하기
     if (seenMap.has(oneside)) {
-      console.log(`✅ 찾음! (${oneside} + ${nums[i]} = ${target})`);
-      return [seenMap.get(oneside), i];
-    } //i가 뽑아낼 인덱스
+      return [seenMap.get(oneside), i]; //.get(oneside)은 oneside키의 값인 인덱스,그리고 i는 뽑아낼 인덱스
+    }
     //기존에 본거에 없으면 맵에 추가 {값:인덱스}
     seenMap.set(nums[i], i);
   }
 }
-
 console.log(findTwoNumbers2(nums, target));
+nums = [2, 7, 11, 15];
+target = 9;
