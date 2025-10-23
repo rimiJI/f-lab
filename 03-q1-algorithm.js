@@ -85,3 +85,24 @@ function findTwoNumbers2(nums, target) {
 console.log(findTwoNumbers2(nums, target));
 nums = [2, 7, 11, 15];
 target = 9;
+
+//-------------세번째 풀이-영상 최적화풀이------------------
+//시간복잡도:O(n) forloop 하나
+//공간복잡도:O(n) 객체 하나
+function findTwoNumbers3(nums, target) {
+  const seenObj = {}; // 값을 키로, 인덱스를 값
+
+  for (let i = 0; i < nums.length; i++) {
+    const currentNumer = nums[i];
+    const neededValue = target - currentNumer; // 찾아야 할 짝
+
+    // 짝(neededValue)이 이미 seenObj 객체에 있는지 확인합니다.
+    if (neededValue in seenObj) {
+      // 있으면, 현재 인덱스(i)와 짝인덱스(seenObj[neededValue])를 반환
+      return [seenObj[neededValue], i];
+    }
+    // 없으면,{ 현재 숫자:인덱스}를 seenObj 객체에 추가
+    seenObj[currentNumer] = i;
+  }
+}
+console.log(findTwoNumbers3(nums, target));
