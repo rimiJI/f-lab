@@ -43,7 +43,7 @@
 let nums = [2, 7, 11, 15];
 let target = 9;
 /*
-//-------------첫번째 풀이-------------------
+//-------------첫번째 풀이-forloop2개------------------
 forloop로 돌리면서
 또 한번 더 forloop로 돌리면서 더한 값이 target과 일치하면 두 인덱스번호 반환 
 두개의 값이 들어갈 [ , ]
@@ -61,7 +61,7 @@ function findTwoNumbers(nums, target) {
 }
 console.log(findTwoNumbers(nums, target));
 
-//-------------두번째 풀이-------------------
+//-------------두번째 풀이-map------------------
 /* forloop로 돌리면서 
 target에서 뺀 값을 map에 추가한담에 
 그 값이 있는지 has로 확인 
@@ -86,7 +86,7 @@ console.log(findTwoNumbers2(nums, target));
 nums = [2, 7, 11, 15];
 target = 9;
 
-//-------------세번째 풀이-영상 최적화풀이------------------
+//-------------세번째 풀이-영상 최적화풀이-obj-----------------
 //시간복잡도:O(n) forloop 하나
 //공간복잡도:O(n) 객체 하나
 function findTwoNumbers3(nums, target) {
@@ -94,12 +94,12 @@ function findTwoNumbers3(nums, target) {
 
   for (let i = 0; i < nums.length; i++) {
     const currentNumer = nums[i];
-    const neededValue = target - currentNumer; // 찾아야 할 짝
+    const needValue = target - currentNumer; // 찾아야 할 짝
 
-    // 짝(neededValue)이 이미 seenObj 객체에 있는지 확인합니다.
-    if (neededValue in seenObj) {
-      // 있으면, 현재 인덱스(i)와 짝인덱스(seenObj[neededValue])를 반환
-      return [seenObj[neededValue], i];
+    // 짝(needValue)이 이미 seenObj 객체에 있는지 확인합니다.
+    if (needValue in seenObj) {
+      // 있으면, 현재 인덱스(i)와 짝인덱스(seenObj[needValue])를 반환
+      return [seenObj[needValue], i];
     }
     // 없으면,{ 현재 숫자:인덱스}를 seenObj 객체에 추가
     seenObj[currentNumer] = i;
