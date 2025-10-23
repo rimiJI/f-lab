@@ -14,7 +14,7 @@ var sumOddNumbersDeep = function (nums) {
   let sum = 0;
   for (i of nums)
     if (Array.isArray(i)) {
-      sumOddNumbersDeep(i);
+      sum += sumOddNumbersDeep(i); //이렇게 새롭게 재귀 불러오면 기존 sum결과를 더해줘야함
     } else {
       if (i % 2 !== 0) {
         sum += i;
@@ -24,5 +24,7 @@ var sumOddNumbersDeep = function (nums) {
 };
 
 console.log(sumOddNumbersDeep([1, [2, 3], [4, [5, 6]]]));
-
-//뭐가 문제니
+console.log(sumOddNumbersDeep([[2, [4]], 6]));
+console.log(sumOddNumbersDeep([7, [-3, [10, [-5]]]]));
+console.log(sumOddNumbersDeep([]));
+console.log(sumOddNumbersDeep([1, 3, 5, 7, 9]));
