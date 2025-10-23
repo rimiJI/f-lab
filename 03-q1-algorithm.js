@@ -94,12 +94,12 @@ function findTwoNumbers3(nums, target) {
 
   for (let i = 0; i < nums.length; i++) {
     const currentNumer = nums[i];
-    const neededValue = target - currentNumer; // 찾아야 할 짝
+    const needValue = target - currentNumer; // 찾아야 할 짝
 
-    // 짝(neededValue)이 이미 seenObj 객체에 있는지 확인합니다.
-    if (neededValue in seenObj) {
-      // 있으면, 현재 인덱스(i)와 짝인덱스(seenObj[neededValue])를 반환
-      return [seenObj[neededValue], i];
+    // 짝(needValue)이 이미 seenObj 객체에 있는지 확인합니다.
+    if (needValue in seenObj) {
+      // 있으면, 현재 인덱스(i)와 짝인덱스(seenObj[needValue])를 반환
+      return [seenObj[needValue], i];
     }
     // 없으면,{ 현재 숫자:인덱스}를 seenObj 객체에 추가
     seenObj[currentNumer] = i;
