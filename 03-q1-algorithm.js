@@ -37,11 +37,15 @@
  * @param {number} target
  * @return {number[]}
  */
+/*숫자로 되어있는 배열 nums와 하나의 숫자 target이 있다.
+배열 숫자 중 합이 target이게 하는 서로 다른 두개의 수를 찾아서
+숫자 그 자체가 아닌 인덱스넘버를 배열 형식으로 만들어라. */
 let nums = [2, 7, 11, 15];
 let target = 9;
 /*
 //-------------첫번째 풀이-------------------
-forloop로 돌리면서 target에서 뺀 값을 - 그 값이 있는지 또 for로 돌리면서 일치하는 것 확인 
+forloop로 돌리면서
+또 한번 더 forloop로 돌리면서 더한 값이 target과 일치하면 두 인덱스번호 반환 
 두개의 값이 들어갈 [ , ]
 시간복잡도: O(n²)
 공간복잡도: O(1) _굳이 따지자면 새로 생긴 [,]
@@ -62,7 +66,10 @@ console.log(findTwoNumbers(nums, target));
 target에서 뺀 값을 map에 추가한담에 
 그 값이 있는지 has로 확인 
 있으면 가져오고
-없으면 추가하고 */
+없으면 추가하고 
+시간복잡도 : O(n) forloop 하나, map은 O(1) 소요시간을 가짐
+공간복잡도 : O(n) map 하나
+*/
 function findTwoNumbers2(nums, target) {
   let seenMap = new Map(); //{값:인덱스}
   for (let i = 0; i < nums.length; i++) {
