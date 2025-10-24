@@ -15,6 +15,9 @@ true를 반환하고
 
 제약조건:
 문자열의 불변성 -인덱스넘버로 문자열을 조작해서 변경할 수 없다. 
+
+시간복잡도: O(n)
+공간복잡도: O(1)
 */
 var isPalindrome = function (s) {
   let head = 0;
@@ -33,7 +36,7 @@ var isPalindrome = function (s) {
   return true;
 };
 
-console.log(isPalindrome("racecar")); //true
-console.log(isPalindrome("hello")); //false
-console.log(isPalindrome("madam")); //true
-console.log(isPalindrome("a")); //true
+console.log(isPalindrome("racecar")); //true.
+console.log(isPalindrome("hello")); //false.
+console.log(isPalindrome("madam")); //true.
+console.log(isPalindrome("a")); //true.

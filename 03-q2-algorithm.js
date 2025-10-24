@@ -28,8 +28,8 @@ var sumOddNumbersDeep = function (nums) {
   return oddSum;
 };
 
-console.log(sumOddNumbersDeep([1, [2, 3], [4, [5, 6]]]));
-console.log(sumOddNumbersDeep([[2, [4]], 6]));
-console.log(sumOddNumbersDeep([7, [-3, [10, [-5]]]]));
-console.log(sumOddNumbersDeep([]));
-console.log(sumOddNumbersDeep([1, 3, 5, 7, 9]));
+console.log(sumOddNumbersDeep([1, [2, 3], [4, [5, 6]]])); //9
+console.log(sumOddNumbersDeep([[2, [4]], 6])); //0
+console.log(sumOddNumbersDeep([7, [-3, [10, [-5]]]])); //-1
+console.log(sumOddNumbersDeep([])); //0
+console.log(sumOddNumbersDeep([1, 3, 5, 7, 9])); //25 커밋잡혀라
