@@ -35,15 +35,20 @@
 
 var isPalindrome = function (s) {
   // TODO
-  const head = 0;
-  const tail = s.lenght - 1;
+  let head = 0;
+  let tail = s.length - 1;
+  //공백제거
+  s = s.replace(/\s+/g, "");
   //하나씩 돌리다가
-  for (let i = 0; i < s.lenght / 2; i++) {
-    //만약 ' '를 발견하면 다음으로 넘어가라
-    //만약 뒤에서 ''발견하면 다음으로 넘어가라
+  //또는 while(head<tail)
+  for (let i = 0; i < s.length / 2; i++) {
     //앞과 뒤가 다르면 바로 false
+    if (s[head] !== s[tail]) return false;
     //(앞과뒤가 같으면 ) 한칸씩 뒤앞으로
+    head++;
+    tail--;
   } //회전이 종료되면 true
+  return true;
 };
 
 console.log(isPalindrome("racecar")); // true
