@@ -32,6 +32,10 @@
  * s consists of lowercase English letters only (소문자 알파벳만 포함).
  * reverse() 나 sort() 같은거 쓰지 않기.
  */
+/* 
+시간복잡도: O(n) ,for문 한 개
+공간복잡도: O(n) ,공백제거하여 s에 할당
+*/
 
 var isPalindrome = function (s) {
   // TODO
