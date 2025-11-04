@@ -1,14 +1,14 @@
 /**
  * Check Palindrome3
- * 
+ *
  * 팔린드롬은 이제 정말 잘 아시겠죠? 앞으로 읽어도 뒤로 읽어도 같은 단어나 문장.
- * 
+ *
  * 문자열 's'가 주어지구요, 팔린드롬이면 true, 아니면 false.
- * 
- * 근데, 엄청난 능력이 뚝딱 생겨서, 딱 하나의 캐릭터를 지울수 있어요! 
+ *
+ * 근데, 엄청난 능력이 뚝딱 생겨서, 딱 하나의 캐릭터를 지울수 있어요!
  * 하나의 캐릭터를 지웠을때 팔린드롬이다. 그럼 true.
  * 대신 이번엔 중간 중간 공백은 없어요.
- * 
+ *
  * Example 1:
  * Input:  s = "racecar"
  * Output: true
@@ -26,23 +26,44 @@
  * Input:  s = "deeee"
  * Output: true
  * Explanation: Remove 'd' → "eeee" is a palindrome.
- * 
+ *
  * ----------------------------
  * Constraints (제한):
  * 1 <= s.length <= 1000
  * s consists of lowercase English letters only (소문자 알파벳만 포함).
  * reverse() 나 sort() 같은거 쓰지 않기.
  */
+/* 
+시간복잡도: O(n) ,while문 하나
+공간복잡도: O(1) ,각 스칼라값 하나씩.
+*/
 
-var isPalindrome = function(s) {
+var isPalindrome = function (s) {
   // TODO
-while(){
-    
-}
+  let head = 0;
+  let tail = s.length - 1;
+  let skip = 1;
+  while (head < tail) {
+    //앞뒤를 비교하다가 만약 다르면
+    if (s[head] !== s[tail] && skip === 0) {
+      return false;
+    }
+    //skip기회를 뒤쪽을 빼야함. 그래야 -1되고 바로 false 반환을 막을 수 있다.
+    if (s[head] !== s[tail]) {
+      skip -= 1;
+    }
+    console.log(head, tail, s[head], s[tail], skip);
+    //그렇지 않다면
+    //앞+1 , 뒤-1씩하고
+    head++;
+    tail--;
+  } //비교가 다 끝나면 true 반환
+  return true;
 };
 
 console.log(isPalindrome("racecar")); // true
 console.log(isPalindrome("hello")); // false
 console.log(isPalindrome("a")); // true
 console.log(isPalindrome("abca")); // true
+//아래 케이스가 true가 아닌 왜 false일까?
 console.log(isPalindrome("deeee")); // false
