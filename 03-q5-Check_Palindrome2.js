@@ -33,8 +33,8 @@
  * reverse() 나 sort() 같은거 쓰지 않기.
  */
 /* 
-시간복잡도: O(n) ,for문 한 개
-공간복잡도: O(n) ,공백제거하여 s에 할당
+시간복잡도: O(2n) ,for문 한 개. replace한 개
+공간복잡도: O(1) ,s는 결국 하나의 string. 변수 하나가 추가된 것일 뿐.
 */
 
 var isPalindrome = function (s) {
