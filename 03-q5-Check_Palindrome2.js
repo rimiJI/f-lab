@@ -35,7 +35,7 @@
 /* 
 시간복잡도: O(2n) ,for문 한 개. replace한 개
 공간복잡도: O(1) ,s는 결국 하나의 string. 변수 하나가 추가된 것일 뿐.
-*/
+
 
 var isPalindrome = function (s) {
   // TODO
@@ -49,6 +49,32 @@ var isPalindrome = function (s) {
     //앞과 뒤가 다르면 바로 false
     if (s[head] !== s[tail]) return false;
     //(앞과뒤가 같으면 ) 한칸씩 뒤앞으로
+    head++;
+    tail--;
+  } //회전이 종료되면 true
+  return true;
+};
+*/
+/* 
+혹시 replace를 안쓰고 O(N)으로 만들어 보실수 있을까요? 최적화를 한번 더 해보면 좋을거 같아요.
+
+시간복잡도: O(n) ,for문 한 개.  
+공간복잡도: O(1) ,s는 결국 하나의 string. 변수 하나가 추가된 것일 뿐. 
+*/
+var isPalindrome = function (s) {
+  // TODO
+  let head = 0;
+  let tail = s.length - 1;
+  //하나씩 돌리다가
+  //또는 while(head<tail)
+  for (let i = 0; i < s.length / 2; i++) {
+    //공백제거
+    if (s[head] === " ") head++;
+    if (s[tail] === " ") tail--;
+    //앞과 뒤가 다르면 바로 false
+    if (s[head] !== s[tail]) return false;
+    // console.log(head, tail, s[head], s[tail]);
+    //(앞과뒤가 같으면) 한칸씩 뒤앞으로
     head++;
     tail--;
   } //회전이 종료되면 true
