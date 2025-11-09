@@ -61,12 +61,14 @@ var isPalindrome = function (s) {
     freqMap.set(s[i], preValue + 1);
   }
 
-  //odd가 하나일 경우 true
-  let odd = 0;
+  //odd가 하나일 경우 true //이렇게하면 홀수가 3개나와도
+  let foundOdd = false;
   for (let [k, v] of freqMap) {
-    //짝수가 아니면 odd에 추가
-    if (v % 2 !== 0) odd++;
-    if (odd > 1) return false;
+    //짝수가 아니면 odd를 true로
+    if (v % 2 !== 0) {
+      if (foundOdd === true) return false;
+      foundOdd = true;
+    }
   } //짝수면 탈출
   return true;
 };
@@ -75,4 +77,4 @@ console.log(isPalindrome("civic")); // true
 console.log(isPalindrome("ivicc")); // true
 console.log(isPalindrome("a")); // true
 console.log(isPalindrome("hello")); // false
-console.log(isPalindrome("aabbccdde")); // false
+console.log(isPalindrome("aabbccdde")); // false //기대값이 true가 떠야함 답안이 잘못되어보임
