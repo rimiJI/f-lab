@@ -81,12 +81,16 @@ Complexity
 
 function isAnagram(s, t) {
   // TODO
-  const sMap = new Map(s);
+  const sMap = new Map();
   for (let v of s) {
-    sMap.set(v, sMap.get(v) || 0 + 1);
+    sMap.set(v, (sMap.get(v) || 0) + 1);
   }
   for (let v of t) {
+    if (!sMap.has(v)) return false;
+    sMap.set(v, sMap.get(v) - 1);
+    if (sMap.get(v) < 0) return false;
   }
+  return true;
 }
 
 console.log(isAnagram("anagram", "nagaram")); // true
