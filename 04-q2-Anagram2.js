@@ -26,8 +26,13 @@
  *  0 <= words[i].length <= 100
  *  words[i]는 모두 소문자 영어 알파벳으로 구성
  */
+/* 
 방법1_ for로 요소 하나씩 회전하면서 _ 그 하나씩을 Map으로 저장한뒤, Map에 넣고 (2중 맵)
 tempMap을 만들고 그 요소가 위에 만든 2중 맵에 있으면 맵말고 원본 array요소를 추가 
+
+안풀림
+
+ */
 
 function groupAnagrams(words) {
   // TODO
