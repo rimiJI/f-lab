@@ -27,35 +27,47 @@
  *  words[i]는 모두 소문자 영어 알파벳으로 구성
  */
 /* 
-방법1_ for로 요소 하나씩 회전하면서 _ 그 하나씩을 Map으로 저장한뒤, Map에 넣고 (2중 맵)
-tempMap을 만들고 그 요소가 위에 만든 2중 맵에 있으면 맵말고 원본 array요소를 추가 
 
 안풀림
 첫번째 에나그램문제를 활용해서 
-그걸로 하나하나씩 돌아가면서 푼 뒤]
+그걸로 하나하나씩 돌아가면서 푼 뒤
 최적화를 생각해보라
+
+
+
 
 
  */
 
 function groupAnagrams(words) {
-  // TODO
+  for (let v of words) {
+    let isAnagram = true;
+
+    if()
+
+    if(isAnagram) {
+    const sMap = new Map();
+    for (let v of s) {
+      sMap.set(v, (sMap.get(v) || 0) + 1);
+    }
+    for (let v of t) {
+      if (!sMap.has(v)) return false;
+      sMap.set(v, sMap.get(v) - 1);
+      if (sMap.get(v) < 0) return false;
+    }
+    return true;
+  }}
 }
 
 console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]));
 // [["eat","tea","ate"],["tan","nat"],["bat"]]
-
 console.log(groupAnagrams([""]));
 // [[""]]
-
 console.log(groupAnagrams(["a"]));
 // [["a"]]
-
 console.log(groupAnagrams(["abc", "bca", "cab", "abcd"]));
 // [["abc","bca","cab"],["abcd"]]
-
 console.log(groupAnagrams(["", "", "a", "a"]));
 // [["",""],["a","a"]]
-
 console.log(groupAnagrams(["ab", "ba", "abc", "cab", "bac", "a"]));
 // [["ab","ba"],["abc","cab","bac"],["a"]]
