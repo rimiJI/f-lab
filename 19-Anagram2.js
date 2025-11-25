@@ -38,25 +38,41 @@
 
 
  */
+function isAnagram(s, t) {
+  // TODO
+  const sMap = new Map();
+  for (let v of s) {
+    sMap.set(v, (sMap.get(v) || 0) + 1);
+  }
+  for (let v of t) {
+    if (!sMap.has(v)) return false;
+    sMap.set(v, sMap.get(v) - 1);
+    if (sMap.get(v) < 0) return false;
+  }
+  return true;
+}
 
 function groupAnagrams(words) {
+  const group = [];
+
   for (let v of words) {
-    let isAnagram = true;
-
-    if()
-
-    if(isAnagram) {
-    const sMap = new Map();
-    for (let v of s) {
-      sMap.set(v, (sMap.get(v) || 0) + 1);
+    let foundAnagram = false;
+    //group의 속성을 하나씩 돌아가면서 isAnagram으로 판단한 뒤
+    // true면 한 뭉탱이인 pack에 push 하기
+    for (let pack of group) {
+      if (isAnagram(v, pack[0])) {
+        pack.push(v);
+        foundAnagram = true;
+        break;
+      }
     }
-    for (let v of t) {
-      if (!sMap.has(v)) return false;
-      sMap.set(v, sMap.get(v) - 1);
-      if (sMap.get(v) < 0) return false;
+    //그룹이 없으면 새 그룹생성
+    if (foundAnagram === false) {
+      group.push([v]);
     }
-    return true;
-  }}
+  }
+
+  return group;
 }
 
 console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]));
