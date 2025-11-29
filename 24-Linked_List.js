@@ -3,15 +3,7 @@
  * 이건 마치 열차 만들기와 비슷합니다.
  * 각 노드는 열차의 한 칸이고, 각 노드는 데이터와 다음 노드를 가르키는 포인터(손가락)로 구성됩니다.
  */
-/* 
-인스턴스 생성자 메서드: 파라미터X
-append 메서드 : 파라미터O
-prepend 메서드: 파라미터O
-find 메서드 :파라미터O
-Delete 메서드 : 파라미터O 
-Print 메서드 : 파라미터X
- */
-
+//1. 노드의 틀 만들기
 // Node: 각 요소(데이터 + 다음 노드 주소)
 class ListNode {
   constructor(value) {
@@ -20,6 +12,7 @@ class ListNode {
   }
 }
 
+//2. 리스트 틀 만들기.
 // Singly Linked List
 class LinkedList {
   constructor() {
