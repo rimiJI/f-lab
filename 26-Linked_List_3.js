@@ -18,6 +18,10 @@
  *  Output: 8 -> 4 -> 6
  *
  * 참고: https://www.youtube.com/watch?v=KwuUaLmu8wg
+ * 
+ * 
+ * 시간복잡도: O(1) 해당 노드값을 바로 찾아서, 다음으로 갈아끼우기
+공간복잡도: O(1) 딱히 변수선언된 게 없음.
  */
 
 class ListNode {
