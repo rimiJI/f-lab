@@ -1,0 +1,68 @@
+/**
+ * Find K-th Node From End
+ *
+ * 뒤에서 k번째 노드를 반환하시면 되요.
+ * 예를 들어, 1 -> 2 -> 3 -> 4 -> 5 라는 연결 리스트가 있을 때,
+ * k가 2라면 뒤에서 두번째 노드인 4를 반환하면 됩니다.
+ *
+ * 이 문제도 두 개의 포인터를 사용해서 해결할 수 있습니다.
+ * 하나의 포인터는 fast로, 다른 하나는 slow로 부릅니다.
+ * 먼저, fast 포인터를 k칸 앞으로 이동시킵니다.
+ * 그 다음, fast와 slow 포인터를 같이 이동시킵니다.
+ * fast 포인터가 null에 도달할 때, slow 포인터는 뒤에서 k번째 노드를 가리키게 됩니다.
+ *
+ * 참고: https://www.youtube.com/watch?v=J0nIkuaf8R4
+ *
+ *  무슨말인지 하나도 모르겠음
+ */
+
+class ListNode {
+  constructor(value, next = null) {
+    this.value = value;
+    this.next = next;
+  }
+}
+
+// 도우미 함수
+function printList(head) {
+  const res = [];
+  while (head) {
+    res.push(head.value);
+    head = head.next;
+  }
+  console.log(res.join(" -> "));
+}
+
+function findKthFromEnd(head, k) {
+  // TODO
+  let slow = head;
+  let fast = head;
+  //1.length구하기
+  //2.n-k 노드의 위치
+  let n = 0;
+  let temp = head;
+  while (temp) {
+    n++;
+    temp = temp.next;
+  }
+  let len = n - k;
+  while (len && head) {
+    //이거 뭔말
+    pos--;
+    head = head.next;
+  }
+  return head;
+}
+
+// 1 -> 2 -> 3 -> 4 -> 5
+const n5 = new ListNode(5);
+const n4 = new ListNode(4, n5);
+const n3 = new ListNode(3, n4);
+const n2 = new ListNode(2, n3);
+const head = new ListNode(1, n2);
+
+console.log(findKthFromEnd(head, 1).value); // 5
+console.log(findKthFromEnd(head, 2).value); // 4
+console.log(findKthFromEnd(head, 3).value); // 3
+console.log(findKthFromEnd(head, 5).value); // 1
+console.log(findKthFromEnd(head, 6)); // null
