@@ -44,7 +44,7 @@ function findKthFromEnd(head, k) {
   while (temp) {
     n++;
     temp = temp.next;
-  }
+  } //여기까지 n을 구하는 로직
   let len = n - k;
   while (len && head) {
     //이거 뭔말
