@@ -47,8 +47,8 @@ function findKthFromEnd(head, k) {
   } //여기까지 n을 구하는 로직
   let len = n - k;
   while (len && head) {
-    //이거 뭔말
-    pos--;
+    //이거 뭔말 : 아까 길이 n을 구했으면 len은 그 인덱스까지 접근하는 횟수라고 생각하면 된다.
+    len--;
     head = head.next;
   }
   return head;
