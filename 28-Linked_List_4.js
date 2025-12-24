@@ -20,6 +20,15 @@
  * 화이팅 입니다!
  *
  * 참고: https://www.youtube.com/watch?v=A2_ldqM4QcY
+ *
+ *
+ *
+ * Pseudo code
+ * slow는 한번씩 이동하도록
+ * fast를 껑충껑충 이동하게 만들고
+ *
+ * 시간복잡도: O(n) , 주어진 리스트만큼 회전.
+ * 공간복잡도: O(1) , 스칼라 변수 두개 선언
  */
 
 class ListNode {
@@ -34,11 +43,13 @@ function findMiddle(head) {
   let fast = head;
 
   // fast는 2칸, slow는 1칸씩 이동
+  //널인지 아닌지 확인.즉, 끝까지 도달했는지
   while (fast && fast.next) {
+    //slow는 1만큼이동
     slow = slow.next;
+    //fast는 X2만큼 이동
     fast = fast.next.next;
-  }
-
+  } //끝까지 이동했을때 slaw는 fast/2만큼 이동 했을 것.
   return slow; // slow가 middle node
 }
 
