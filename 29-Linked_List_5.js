@@ -41,6 +41,15 @@ function hasCycle(head) {
   // TODO
   let slow = head;
   let fast = head;
+
+  while (fast) {
+    slow = slow.next;
+    fast = fast.next.next;
+    if (slow === fast) {
+      return true;
+    }
+  }
+  return false;
 }
 
 // 사이클 있는 케이스1
