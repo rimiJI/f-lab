@@ -52,8 +52,19 @@ function findKthFromEnd(head, k) {
   let slow = head;
   let fast = head;
 
-  //fast k
+  //fast는 k만큼 먼저 간다.
+  for (let i = 0; i < k; i++) {
+    // k가 길이보다 큰 잘못된 경우를 잡아줘야. 엉뚱하게 없는 fast.next에 접근하여 에러일으키지 않고, null로 return
+    if (fast === null) return null;
+    fast = fast.next;
+  }
+  while (fast !== null) {
+    fast = fast.next;
+    slow = slow.next;
+  }
+  return slow;
 }
+
 // 1 -> 2 -> 3 -> 4 -> 5
 const n5 = new ListNode(5);
 const n4 = new ListNode(4, n5);
