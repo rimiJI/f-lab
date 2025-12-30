@@ -24,6 +24,11 @@ slow
 fast
 를 사용해서 풀어보자
  */
+/* 
+fast를 먼저 k만큼가고
+slow를 는 fast가 k만큼이동한뒤 k만큼의 간격을 유지하면서, k가 끝에 다다랐을때 본인의 위치,값을 나타냄
+fast는 맨 끝에가있고, slow는 끝에서 k번째에 위치한다. 
+*/
 
 class ListNode {
   constructor(value, next = null) {
@@ -46,6 +51,8 @@ function findKthFromEnd(head, k) {
   // TODO
   let slow = head;
   let fast = head;
+
+  //fast k
 }
 // 1 -> 2 -> 3 -> 4 -> 5
 const n5 = new ListNode(5);
