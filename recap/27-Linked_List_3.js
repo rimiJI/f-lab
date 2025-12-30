@@ -49,12 +49,12 @@ function printList(head) {
 
 function findKthFromEnd(head, k) {
   // TODO
-  let slow = head;
-  let fast = head;
+  let slow = head; //시작점에서 출발 (맨앞노드)
+  let fast = head; //시작점에서 출발 (맨앞노드)
 
   //fast는 k만큼 먼저 간다.
   for (let i = 0; i < k; i++) {
-    // k가 길이보다 큰 잘못된 경우를 잡아줘야. 엉뚱하게 없는 fast.next에 접근하여 에러일으키지 않고, null로 return
+    // 엣지케이스)) k가 길이보다 큰 잘못된 경우를 잡아줘야. 엉뚱하게 없는 fast.next에 접근하여 에러일으키지 않고, null로 return
     if (fast === null) return null;
     fast = fast.next;
   }
